@@ -1,5 +1,14 @@
 <?php
 $title = 'Home';
+function getIdUser($marks, $numberUser): int {
+	$i = 0;
+	foreach($marks as $m) {
+		if($m['number_user'] == $numberUser) {
+			return $i;
+		}
+		$i++;
+	}
+}
 ob_start();
 ?>
 <section class="banner d-flex justify-content-center align-items-center pt-5">
@@ -34,15 +43,33 @@ ob_start();
 					<tbody>
 						<?php foreach($marks as $mark): ?>
 							<tr>
-								<td><?= $user['name']. ' ' .$user['firstname'] ?></td>
-								<td><?= $user['number_user'] ?></td>
-								<td><?= strtoupper($user['filiere']) ?></td>
-								<td><?= $mark['matiere'] ?></td>
+								<td>
+									<?php if(!empty($students)): ?>
+										<?= $students[getIdUser($marks, $mark['number_user'])]['name']. ' ' .$students[getIdUser($marks, $mark['number_user'])]['firstname'] ?>
+									<?php else: ?>
+										<?= $user['name']. ' ' .$user['firstname'] ?>
+									<?php endif ?>
+								</td>
+								<td>
+									<?php if(!empty($students)): ?>
+										<?= $students[getIdUser($marks, $mark['number_user'])]['number_user'] ?>
+									<?php else: ?>
+										<?= $user['number_user'] ?>
+									<?php endif ?>
+								</td>
+								<td>
+									<?php if(!empty($students)): ?>
+										<?= strtoupper($students[getIdUser($marks, $mark['number_user'])]['filiere']) ?>
+									<?php else: ?>
+										<?= strtoupper($user['filiere']) ?>
+									<?php endif ?>
+								</td>
+								<td><?= $mark['subject'] ?></td>
 								<td><?= $mark['mark'] ?></td>
 							</tr>
 						<?php endforeach ?>
 					<?php else: ?>
-						<div class="alert alert-warning"><?= $user['name']. ' '. $user['firstname'] ?> n'a pas encore des notes</div>
+						<center><div class="alert alert-warning"><?= $user['name']. ' '. $user['firstname'] ?> n'a pas encore des notes</center></div>
 					<?php endif ?>
         </div>
     </div>

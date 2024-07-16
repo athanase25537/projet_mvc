@@ -8,7 +8,7 @@ function registProf(){
     $newUser->users = new Users;
     $newUser->users->connection = new ConnectToDb();
     if(isset($_POST['username'])) {
-        if($newUser->isValidUserName($_POST['username'])){
+        if($newUser->isValidUserName($_POST['username'], 'prof')){
             $newUser->insertToDb(
                 $_POST['name'],
                 $_POST['firstname'],

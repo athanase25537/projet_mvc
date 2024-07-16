@@ -21,8 +21,8 @@ class Register
         int $numberUser,
         String $filiere)
     {
-        $query = 'INSERT INTO ' . self::TABLE_NAME . ' (filiere, number_user, name, firstname, birth, email, tel, username, password, photo, status, creation_date) 
-            VALUES (:filiere, :number_user, :name, :firstname, :birth, :email, :tel, :username, :password, :photo, :status, NOW())';
+        $query = 'INSERT INTO ' . self::TABLE_NAME . ' (filiere, number_user, name, firstname, birth, email, tel, username, password, photo, creation_date) 
+            VALUES (:filiere, :number_user, :name, :firstname, :birth, :email, :tel, :username, :password, :photo, NOW())';
         $insertStatement = $this->connection->connectToDb()->prepare($query);
         $insertStatement->execute([
             'number_user' => $numberUser,
@@ -34,16 +34,15 @@ class Register
             'username' => $username,
             'password' => password_hash($password, 0, ['cost' => 14]),
             'photo' => $photo,
-            'status' => $status,
             'filiere' => $filiere
         ]);
 
         return $insertStatement > 0;
     }
 
-    public function isValidUserName($username)
+    public function isValidUserName($username, $status)
     {
-        $users = $this->users->getUsers();
+        $users = $this->users->getAllUsers($status);
 
         foreach($users as $user){
             if($username == $user['username']){

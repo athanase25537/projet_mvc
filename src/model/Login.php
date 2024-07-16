@@ -7,7 +7,7 @@ class Login
 
     public function canConnect($username, $password, $status)
     {
-        foreach($this->users->getUsers($status) as $user){
+        foreach($this->users->getAllUsers($status) as $user){
             if($username == $user['username'] && password_verify($password, $user['password'])){
                 return true;
             }

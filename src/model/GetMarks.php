@@ -24,6 +24,17 @@ class GetMarks
         return $contents;
     }
 
+    public function getAllMarksProf($subject): array
+    {
+        $query = 'SELECT * FROM ' . self::TABLE_NAME . ' WHERE subject = :subject';
+        $contentsStatement = $this->connection->connectToDb()->prepare($query);
+        $contentsStatement->execute([
+            'subject' => $subject
+        ]);
+        $contents = $contentsStatement->fetchAll(PDO::FETCH_ASSOC);
+        return $contents;
+    }
+
     public function getMarks($number)
     {
         $query = 'SELECT * FROM ' . self::DB_NAME . ' WHERE number_user = :number_user';

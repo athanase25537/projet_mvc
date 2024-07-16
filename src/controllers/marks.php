@@ -10,8 +10,18 @@ function displayMarks(){
     $users = new Users();
     $users->connection = new ConnectToDb();
     $user = $users->getUser($_SESSION['username'], $_SESSION['status']);
-    $numberUser = ($_SESSION['status'] !== 'prof') ? $user['number_user'] : 0;
-    $marks = $marks->getAllMarks($numberUser);
-    return [$marks, $user];
+    if($_SESSION['status']=='prof') {
+        $marks = $marks->getAllMarksProf($user['subject']);
+        if(!empty($marks)) {
+            $students = [];
+            foreach($marks as $mark) {
+                $students[] = $users->getUserOne($mark['number_user']);
+            }
+        }
+    }else{
+        $students = [];
+        $marks = $marks->getAllMarks($user['number_user']);
+    }
+    return [$marks, $user, $students];
     // header('Location: index.php?add=success');
 }

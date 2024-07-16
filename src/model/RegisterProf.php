@@ -35,9 +35,9 @@ class RegisterProf
         return $insertStatement > 0;
     }
 
-    public function isValidUserName($username)
+    public function isValidUserName($username, $status)
     {
-        $users = $this->users->getUsers();
+        $users = $this->users->getAllUsers($status);
 
         foreach($users as $user){
             if($username == $user['username']){

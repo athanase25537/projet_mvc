@@ -63,5 +63,6 @@ if(!isConnect()){
     require '../src/controllers/marks.php';
     $marks = displayMarks()[0];
     $user = displayMarks()[1];
+    $students = displayMarks()[2];
     require '../src/templates/homePage.php';
 }

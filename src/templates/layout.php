@@ -9,7 +9,7 @@
 
 		<!-- Bootstrap core CSS -->
 		<link href="../src/assets/css/bootstrap.min.css" rel="stylesheet" />
-		<!-- <link rel="stylesheet" href="../src/assets/css/styles.css" /> -->
+		<link rel="stylesheet" href="../src/assets/css/styles.css" />
         <script src="../src/assets/js/bootstrap.bundle.min.js"></script>
 
 		<title><?= $title ?></title>
@@ -19,8 +19,8 @@
             <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
                 <div class="container-fluid">
                 <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder" href="#">
-                    <?= '<img src="../src/img/' . $user['photo'] . '" width="50px" height="50px" style="border-radius:50px;object-fit:cover">'; ?>
-                    <?= $user['username'] ?>
+                    <!-- <?= '<img src="../src/img/' . $user['photo'] . '" width="50px" height="50px" style="border-radius:50px;object-fit:cover">'; ?> -->
+                    <!-- <?= $user['username'] ?> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

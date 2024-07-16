@@ -8,7 +8,7 @@ function registUser(){
     $newUser->users = new Users;
     $newUser->users->connection = new ConnectToDb();
 
-    if($newUser->isValidUserName($_POST['username'])){
+    if($newUser->isValidUserName($_POST['username'], 'et')){
         $newUser->insertToDb(
             $_POST['name'],
             $_POST['firstname'],
