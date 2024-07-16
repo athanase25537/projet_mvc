@@ -1,7 +1,7 @@
 <?php
 $title = 'Add Content';
 ob_start();
-$id = $user['id'];
+// $id = $user['id'];
 ?>
 
 <div class="container d-flex justify-content-center" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%)">
@@ -9,8 +9,8 @@ $id = $user['id'];
         <div class="card w-100 border-0 bg-light text-dark" style="width: 18rem;box-shadow:0 0 .3rem .04rem #000">
             <div class="card-body">
                 <form action="index.php?action=add" class="form-group" method="post">
-                    <h5 class="card-title text-center">Welcome</h5>
-                    <h6 class="card-subtitle mb-5 text-muted text-center">Add Content</h6>
+                    <h5 class="card-title text-center">Bienvenue</h5>
+                    <h6 class="card-subtitle mb-5 text-muted text-center">Ajouter Notes</h6>
 
                     <div class="input-group mb-3">
                         <input type="text" name="matiere" class="form-control" required>
@@ -31,7 +31,7 @@ $id = $user['id'];
                         <span class="input-group-text" id="basic-addon1">Observation</span>
                     </div>
 
-                    <input type="hidden" name="id_user" value="<?= $id ?>">
+                    <!-- <input type="hidden" name="id_user" value="<?= $id ?>"> -->
                     <button class="btn btn-primary float-end">Ajouter</button>
                     <a href="index.php?action=register" class="btn btn-light float-left">Retour</a>
                 </form>

@@ -9,7 +9,7 @@
 
 		<!-- Bootstrap core CSS -->
 		<link href="../src/assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../src/assets/css/styles.css" />
+		<!-- <link rel="stylesheet" href="../src/assets/css/styles.css" /> -->
         <script src="../src/assets/js/bootstrap.bundle.min.js"></script>
 
 		<title><?= $title ?></title>

@@ -17,9 +17,11 @@ ob_start();
 			<div class="col-md-6"></div>
 			<div class="col-md-6">
 				<h1 class="text-capitalise py-3 redressed banner-desc">Bienvenue <?= $_SESSION['username'] ?>
-				<p>
-					<a href="index.php?action=add" class="btn btn-outline-info rounded-0 merriweather">Add Content</a>
-				</p>
+				<?php if($_SESSION['status']=='prof'): ?>
+					<p>
+						<a href="index.php?action=add" class="btn btn-outline-info rounded-0 merriweather">Ajouter Notes</a>
+					</p>
+				<?php endif ?>
 			</div>
 		</div>
 	</div>

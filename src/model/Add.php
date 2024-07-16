@@ -9,17 +9,17 @@ class Add
     public function addContentToDb(
         int $numberUser,
         int $mark,
-        String $matiere,
+        String $subject,
         String $observation
         )
     {
-        $query = 'INSERT INTO ' . self::TABLE_NAME . ' (number_user, mark, matiere, observation) 
-            VALUES (:number_user, :mark, :matiere, :observation)';
+        $query = 'INSERT INTO ' . self::TABLE_NAME . ' (number_user, mark, subject, observation) 
+            VALUES (:number_user, :mark, :subject, :observation)';
         $addStatement = $this->connection->connectToDb()->prepare($query);
         $addStatement->execute([
             'number_user' => $numberUser,
             'mark' => $mark,
-            'matiere' => $matiere,
+            'subject' => $subject,
             'observation' => $observation
         ]);
 
